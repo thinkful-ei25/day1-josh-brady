@@ -1,9 +1,16 @@
 'use strict';
 function createGreeting(name, age) {
-  const yearOfBirth = getYearOfBirth(age);  
   if(!name || !age) {
     throw new Error('Arguments not valid');
   }
+
+  if(typeof name != "string"){
+    throw new TypeError('Name must be a string');
+  }
+  if(typeof age != "number"){
+    throw new TypeError('age must be a number');
+  }
+  const yearOfBirth = getYearOfBirth(age);
   return `Hi, my name is ${name} and I'm ${age} years old. I was born in ${yearOfBirth}.`;
 }
 
@@ -15,7 +22,7 @@ function getYearOfBirth(age) {
 }
 
 try{
-  const greeting = createGreeting('brady', -29);
+  const greeting = createGreeting('Derek', 75);
   console.log(greeting);
 } catch(e) {
   console.log(e);
