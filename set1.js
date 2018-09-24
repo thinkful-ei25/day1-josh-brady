@@ -4,10 +4,10 @@ function createGreeting(name, age) {
     throw new Error('Arguments not valid');
   }
 
-  if(typeof name != "string"){
+  if(typeof name !== "string"){
     throw new TypeError('Name must be a string');
   }
-  if(typeof age != "number"){
+  if(typeof age !== "number"){
     throw new TypeError('age must be a number');
   }
   const yearOfBirth = getYearOfBirth(age);
