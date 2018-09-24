@@ -49,8 +49,47 @@ function decode(encodedStr) {
   return returnStr;
 }
 
+function daysInMonth(month, leap = false){
+  let days = 28;
+  month = month.toLowerCase();
+  if(month === 'february' && leap === true){
+    return 'february has 29 days';
+  }
+  switch(month){
+    case 'february':
+      days = 28;
+      break;
+    case 'september':
+    case 'april':
+    case 'june':
+    case 'november':
+      days = 30;
+      break;
+    case 'january':
+    case 'march':
+    case 'may':
+    case 'july':
+    case 'august':
+    case 'october':
+    case 'december':
+      days = 31;
+      break;
+    default:
+      throw new Error('must provide a valid month');
+  }
+  return `${month} has ${days} days`;
+
+
+
+}
+
 
 //Tests
 console.log(jediName('brady', 'douglas'));
 beyond(Infinity);
 console.log(decode('craft block argon meter bells brown croon droop'));
+try{
+  console.log(daysInMonth('February', true));
+} catch(e) {
+  console.error(e.message);
+}
